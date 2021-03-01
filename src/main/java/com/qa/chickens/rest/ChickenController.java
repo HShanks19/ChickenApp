@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.chickens.domain.Chicken;
-import com.qa.chickens.service.chicken.ChickenServiceList;
+import com.qa.chickens.service.chicken.ChickenInterface;
 
 @RestController
 public class ChickenController {
 	
-	private ChickenServiceList service;
+	private ChickenInterface service;
 
-	public ChickenController(ChickenServiceList service) {
+	public ChickenController(ChickenInterface service) {
 		super();
 		this.service = service;
 	}
@@ -36,17 +36,27 @@ public class ChickenController {
 	}
 
 	@GetMapping("/getChicken/{id}")
-	public Chicken getChickenById(@PathVariable int id) {
+	public Chicken getChickenById(@PathVariable long id) {
 		return this.service.getChickenById(id);
+	}
+	
+	@GetMapping ("/getChickenByName/{name}")
+	public List<Chicken> getChickenByName (@PathVariable String name) {
+		return this.service.getChickenByName(name);
+	}
+	
+	@GetMapping ("/getChickensByBreed/{breed}")
+	public List<Chicken> getChickenByBreed (@PathVariable String breed) {
+		return this.service.getChickensByBreed(breed);
 	}
 
 	@DeleteMapping("/removeChicken/{id}")
-	public Chicken removeChicken(@PathVariable int id) {
+	public boolean removeChicken(@PathVariable long id) {
 		return this.service.removeChicken(id);
 	}
 	
 	@PutMapping("/updateChicken/{id}")
-    public Chicken updateChicken(@PathVariable int id, @RequestBody Chicken chicken) {
+    public Chicken updateChicken(@PathVariable long id, @RequestBody Chicken chicken) {
         return this.service.updateChicken(id, chicken);
     }
 

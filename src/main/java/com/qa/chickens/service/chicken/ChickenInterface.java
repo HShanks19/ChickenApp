@@ -10,11 +10,15 @@ public interface ChickenInterface {
 
 		List<Chicken> getChickens();
 
-		Chicken getChickenById(int id);
-
-		Chicken removeChicken(int id);
+		Chicken getChickenById(long id);
 		
-		Chicken updateChicken(int id, Chicken chicken);
+		Chicken updateChicken(long id, Chicken chicken);
+
+		boolean removeChicken(long id);
+
+		List<Chicken> getChickenByName(String name);
+		
+		List<Chicken> getChickensByBreed(String breed);
 	
 
 }
