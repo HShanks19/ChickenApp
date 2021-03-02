@@ -36,28 +36,29 @@ public class ChickenController {
 	}
 
 	@GetMapping("/getChicken/{id}")
-	public Chicken getChickenById(@PathVariable long id) {
-		return this.service.getChickenById(id);
+	public ResponseEntity<Chicken> getChickenById(@PathVariable long id) {
+		return ResponseEntity.ok(this.service.getChickenById(id));
 	}
 	
 	@GetMapping ("/getChickenByName/{name}")
-	public List<Chicken> getChickenByName (@PathVariable String name) {
-		return this.service.getChickenByName(name);
+	public ResponseEntity<List<Chicken>> getChickenByName (@PathVariable String name) {
+		return ResponseEntity.ok(this.service.getChickenByName(name));
 	}
 	
 	@GetMapping ("/getChickensByBreed/{breed}")
-	public List<Chicken> getChickenByBreed (@PathVariable String breed) {
-		return this.service.getChickensByBreed(breed);
+	public ResponseEntity<List<Chicken>> getChickenByBreed (@PathVariable String breed) {
+		return ResponseEntity.ok(this.service.getChickensByBreed(breed));
 	}
 
 	@DeleteMapping("/removeChicken/{id}")
-	public boolean removeChicken(@PathVariable long id) {
-		return this.service.removeChicken(id);
+	public ResponseEntity<Chicken> removeChicken(@PathVariable long id) {
+		this.service.removeChicken(id);
+		return new ResponseEntity<> (HttpStatus.NO_CONTENT);
 	}
 	
 	@PutMapping("/updateChicken/{id}")
-    public Chicken updateChicken(@PathVariable long id, @RequestBody Chicken chicken) {
-        return this.service.updateChicken(id, chicken);
+    public ResponseEntity<Chicken> updateChicken(@PathVariable long id, @RequestBody Chicken chicken) {
+        return new ResponseEntity<>(this.service.updateChicken(id, chicken), HttpStatus.ACCEPTED);
     }
 
 }

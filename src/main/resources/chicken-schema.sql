@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS chicken (
+    id BIGINT AUTO_INCREMENT,
+    age INTEGER NOT NULL,
+    breed VARCHAR(255),
+    colour VARCHAR(255),
+    name VARCHAR(255),
+    PRIMARY KEY (id)
+);

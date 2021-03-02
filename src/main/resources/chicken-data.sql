@@ -1,0 +1,1 @@
+INSERT INTO chicken (age, breed, colour, name) VALUES (4, 'Canadian Chicken', 'White', 'Henry');

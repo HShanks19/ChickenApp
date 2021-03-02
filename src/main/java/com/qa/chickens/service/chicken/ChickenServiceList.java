@@ -28,23 +28,44 @@ public class ChickenServiceList implements ChickenInterface {
 		return this.chickens;
 	}
 
-	@Override
-	public Chicken getChickenById(long id) {
+	public Chicken getChickenById(int id) {
 		return this.chickens.get(id);
 	}
 
-	@Override
-	public boolean removeChicken(long id) {
+	public Chicken removeChicken(int id) {
 		return this.chickens.remove(id);
-		boolean exists = this.chickens.get(id);
-        return !exists;
 	}
 	
 	@Override
 	public Chicken updateChicken(long id, Chicken chicken) {
-        this.chickens.remove(id);
-        this.chickens.add(id, chicken);
-        return this.chickens.get(id);
+       // this.chickens.remove(id);
+       // this.chickens.add(id, chicken);
+        //return this.chickens.get(id);
+        return null;
     }
+
+	@Override
+	public List<Chicken> getChickenByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Chicken> getChickensByBreed(String breed) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Chicken getChickenById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean removeChicken(long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

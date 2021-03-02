@@ -33,6 +33,15 @@ public class Chicken {
 		super();
 	}
 
+	public Chicken(long id, String name, int age, String colour, String breed) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.colour = colour;
+		this.breed = breed;
+	}
+
 	public Long getId() {
 		return id;
 	}
